@@ -1,14 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import Spinner from '../layout/Spinner.jsx';
 import UserItem from './UserItem.jsx';
 import GithubContext from '../../context/github/GithubCuntex.jsx';
 
 function UserResults() {
   //this line is added insted of useState GithubContext is imported and used in useContext hook
-  const { users, loading, fetchUser } = useContext(GithubContext);
-  useEffect(() => {
-    fetchUser();
-  }, []);
+  const { users, loading } = useContext(GithubContext);
 
   if (!loading) {
     return (
